@@ -1,5 +1,10 @@
+import { useEffect, useRef, useState } from "react";
+
 // frontend/src/App.tsx
 function App() {
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement | null>(null);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (!element) return;
@@ -10,6 +15,41 @@ function App() {
 
     window.scrollTo({ top: y, behavior: "smooth" });
   };
+
+  // închide dropdown dacă dai click în afară
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const services = [
+    {
+      title: "Vezi toate serviciile",
+      desc: "Explorează toate serviciile noastre",
+      price: "",
+    },
+    {
+      title: "DIAGNOSTICAREA COMPUTERIZATĂ A AUTOMOBILULUI",
+      desc: "Preț de la:",
+      price: "200 MDL",
+    },
+    {
+      title: "REPARAȚIA MOTOARELOR ELECTRICE",
+      desc: "Preț de la:",
+      price: "400 MDL",
+    },
+    {
+      title: "REPARAȚIA GENERATOARELOR",
+      desc: "Preț de la:",
+      price: "400 MDL",
+    },
+  ];
 
   return (
     <div
@@ -41,15 +81,131 @@ function App() {
         </div>
 
         <div style={{ display: "flex", gap: "25px", fontWeight: "bold", color: "#444", cursor: "pointer" }}>
-          <span onClick={() => scrollToSection("acasa")}>ACASĂ</span>
-          <span onClick={() => scrollToSection("servicii")}>SERVICII</span>
-          <span onClick={() => scrollToSection("despre")}>DESPRE NOI</span>
-          <span onClick={() => scrollToSection("recenzii")}>RECENZII</span>
-          <span onClick={() => scrollToSection("contact")}>CONTACT</span>
+          <span
+            onClick={() => {
+              setServicesOpen(false);
+              scrollToSection("acasa");
+            }}
+          >
+            ACASĂ
+          </span>
+
+          {/* === DOAR AICI AM SCHIMBAT "SERVICII" (dropdown) === */}
+          <div ref={servicesRef} style={{ position: "relative", display: "inline-block" }}>
+            <span
+              onClick={() => setServicesOpen((v) => !v)}
+              style={{ display: "inline-flex", alignItems: "center", gap: 6, userSelect: "none" }}
+            >
+              SERVICII
+              <span style={{ fontSize: 14, transition: "0.2s", transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
+                ▾
+              </span>
+            </span>
+
+            {servicesOpen && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: 44,
+                  left: -120,
+                  width: 520,
+                  background: "#fff",
+                  borderRadius: 20,
+                  boxShadow: "0 20px 50px rgba(0,0,0,0.2)",
+                  padding: 18,
+                  zIndex: 2000,
+                  cursor: "default",
+                }}
+              >
+                <div style={{ fontSize: 22, fontWeight: 800, marginBottom: 12, color: "#333" }}>
+                  Vezi toate serviciile
+                </div>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                  {services.map((service, index) => (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setServicesOpen(false);
+                        scrollToSection("servicii");
+                      }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 14,
+                        padding: 12,
+                        borderRadius: 14,
+                        border: index === 0 ? "2px dashed #ddd" : "1px solid #eee",
+                        cursor: "pointer",
+                        background: "#fff",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: 46,
+                          height: 46,
+                          borderRadius: 12,
+                          background: "#f3f3f3",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          fontSize: 20,
+                        }}
+                      >
+                        🛠️
+                      </div>
+
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontWeight: 800, color: "#333", fontSize: 13, lineHeight: 1.2 }}>
+                          {service.title}
+                        </div>
+                        <div style={{ color: "#777", fontSize: 13, marginTop: 4 }}>
+                          {service.desc}{" "}
+                          {service.price ? (
+                            <span style={{ color: "#ff4d29", fontWeight: 800 }}>{service.price}</span>
+                          ) : null}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          {/* === GATA schimbarea pentru "SERVICII" === */}
+
+          <span
+            onClick={() => {
+              setServicesOpen(false);
+              scrollToSection("despre");
+            }}
+          >
+            DESPRE NOI
+          </span>
+          <span
+            onClick={() => {
+              setServicesOpen(false);
+              scrollToSection("recenzii");
+            }}
+          >
+            RECENZII
+          </span>
+          <span
+            onClick={() => {
+              setServicesOpen(false);
+              scrollToSection("contact");
+            }}
+          >
+            CONTACT
+          </span>
         </div>
 
         <button
-          onClick={() => scrollToSection("contact")}
+          onClick={() => {
+            setServicesOpen(false);
+            scrollToSection("contact");
+          }}
           style={{
             backgroundColor: "#ff4d29",
             color: "#fff",
@@ -161,7 +317,7 @@ function App() {
       <section id="contact" style={{ padding: "90px 5%", backgroundColor: "#fff" }}>
         <h2 style={{ fontSize: "2.4rem", marginBottom: "12px", color: "#222" }}>Contact</h2>
         <p style={{ color: "#666", maxWidth: 900, lineHeight: 1.6 }}>
-          Telefon: +373 xxx xxx • Email: contact@carfix.md
+          Telefon: +37369751748 • Email: contact@carfix.md
         </p>
       </section>
     </div>
