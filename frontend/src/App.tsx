@@ -1,30 +1,81 @@
 function App() {
+  const handleNav = (sectiune: string) => {
+    console.log("Navigare către:", sectiune);
+    alert("Navigăm către secțiunea: " + sectiune);
+  };
+
   return (
-    <div className="App" style={{ fontFamily: 'Arial, sans-serif', color: '#333', lineHeight: '1.6' }}>
+    <div style={{ width: '100%', margin: 0, padding: 0, fontFamily: 'Arial, sans-serif' }}>
       
-      {/* O primire călduroasă */}
-      <header style={{ background: '#1a1a1a', color: '#ffd700', padding: '40px 20px', textAlign: 'center' }}>
-        <h1 style={{ margin: 0, fontSize: '2.5rem' }}>CarFix</h1>
-        <p style={{ margin: '10px 0 0', fontSize: '1.1rem' }}>Suntem aici să avem grijă de mașina ta, ca să poți conduce fără griji.</p>
-      </header>
-      
-      <main style={{ padding: '40px 20px', maxWidth: '700px', margin: '0 auto' }}>
+      {/* NAVBAR - Întins pe tot ecranul */}
+      <nav style={{ 
+        width: '100%', 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        padding: '15px 10%', 
+        backgroundColor: '#fff',
+        borderBottom: '1px solid #eee',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000
+      }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.8rem', color: '#d32f2f', cursor: 'pointer' }}>
+          CAR<span style={{ color: '#333' }}>FIX</span>
+        </div>
         
-        <section style={{ textAlign: 'center' }}>
-          <h2 style={{ color: '#d32f2f' }}>Bun venit în atelierul nostru!</h2>
-          <p>
-            Știm cât de importantă este siguranța ta la drum. Fie că ai nevoie de o simplă verificare 
-            sau de o reparație complexă, echipa noastră te primește cu profesionalism și cafea proaspătă.
+        {/* Link-uri care acum "lucrează" (la click dau un mesaj) */}
+        <div style={{ display: 'flex', gap: '30px', fontWeight: 'bold', color: '#444', cursor: 'pointer' }}>
+          <span onClick={() => handleNav('Acasa')}>ACASĂ</span>
+          <span onClick={() => handleNav('Servicii')}>SERVICII ⌄</span>
+          <span onClick={() => handleNav('Despre')}>DESPRE NOI</span>
+          <span onClick={() => handleNav('Recenzii')}>RECENZII</span>
+          <span onClick={() => handleNav('Contact')}>CONTACT</span>
+        </div>
+
+        <button 
+          onClick={() => handleNav('Contact')}
+          style={{ backgroundColor: '#ff4d29', color: '#fff', border: 'none', padding: '12px 25px', borderRadius: '30px', fontWeight: 'bold', cursor: 'pointer' }}
+        >
+          Contactează-ne
+        </button>
+      </nav>
+
+      {/* CONȚINUT CENTRAT */}
+      <main style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        padding: '60px 20px',
+        textAlign: 'center' 
+      }}>
+        <h1 style={{ fontSize: '3rem', marginBottom: '10px', color: '#222' }}>Bun venit în atelierul nostru!</h1>
+        <p style={{ maxWidth: '800px', color: '#666', fontSize: '1.2rem', marginBottom: '40px' }}>
+          Știm cât de importantă este siguranța ta la drum. Echipa noastră te primește cu profesionalism și soluții rapide pentru orice problemă tehnică.
+        </p>
+
+        {/* CARDUL CENTRAT: Cu ce te putem ajuta? */}
+        <div style={{ 
+          maxWidth: '600px', 
+          width: '100%',
+          padding: '40px', 
+          boxShadow: '0 10px 30px rgba(0,0,0,0.1)', 
+          borderRadius: '20px', 
+          backgroundColor: '#fff',
+          borderLeft: '5px solid #ff4d29',
+          textAlign: 'left' // Textul din interiorul cardului rămâne la stânga pentru citire ușoară
+        }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '15px', color: '#222' }}>Cu ce te putem ajuta?</h3>
+          <p style={{ fontStyle: 'italic', color: '#ff4d29', fontWeight: 'bold', marginBottom: '15px' }}>
+            Echipa noastră se ocupă de orice problemă, de la diagnoză la mecanica grea.
           </p>
-        </section>
-
-        <section style={{ marginTop: '30px', padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '10px' }}>
-          <h3 style={{ borderBottom: '2px solid #ffd700', display: 'inline-block' }}>Cu ce te putem ajuta?</h3>
-          <p style={{ fontStyle: 'italic' }}>Echipa noastră se ocupă de orice problemă, de la diagnoză la mecanica grea.</p>
-          <p>Te așteptăm la noi pentru a-ți pune mașina la punct rapid și corect.</p>
-        </section>
-
+          <p style={{ color: '#555', lineHeight: '1.6' }}>
+            Te așteptăm la noi pentru a-ti pune mașina la punct rapid și corect.
+          </p>
+        </div>
       </main>
+
     </div>
   );
 }
