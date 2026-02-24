@@ -235,23 +235,41 @@ function App() {
           </span>
         </div>
 
-        <button
-          onClick={() => {
-            setServicesOpen(false);
-            scrollToSection("contact");
-          }}
-          style={{
-            backgroundColor: "#ff4d29",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "25px",
-            fontWeight: "bold",
-            cursor: "pointer",
-          }}
-        >
-          Contactează-ne
-        </button>
+       <div style={{ display: "flex", gap: "10px" }}>
+  <button
+    onClick={() => {
+      setServicesOpen(false);
+      scrollToSection("contact");
+    }}
+    style={{
+      backgroundColor: "#ff4d29",
+      color: "#fff",
+      border: "none",
+      padding: "10px 20px",
+      borderRadius: "25px",
+      fontWeight: "bold",
+      cursor: "pointer",
+    }}
+  >
+    Contactează-ne
+  </button>
+
+  <button
+    onClick={logout}
+    style={{
+      backgroundColor: "#333",
+      color: "#fff",
+      border: "none",
+      padding: "10px 18px",
+      borderRadius: "25px",
+      fontWeight: "bold",
+      cursor: "pointer",
+    }}
+  >
+    Logout
+  </button>
+</div>
+
       </nav>
 
       {/* HERO */}
