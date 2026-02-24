@@ -1,7 +1,23 @@
 import { useEffect, useRef, useState } from "react";
+import Login from "./Login";
+import DashboardAdmin from "./DashboardAdmin";
 
 // frontend/src/App.tsx
 function App() {
+  // ======= LOGIN / ROLE (ADĂUGAT) =======
+  type Role = "admin" | "user" | null;
+
+  const [role, setRole] = useState<Role>(
+    (localStorage.getItem("role") as Role) || null
+  );
+
+  const logout = () => {
+    localStorage.removeItem("role");
+    localStorage.removeItem("username");
+    setRole(null);
+  };
+  // =====================================
+
   const [servicesOpen, setServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement | null>(null);
 
@@ -51,6 +67,19 @@ function App() {
     },
   ];
 
+  // ======= LOGICA AFIȘARE (ADĂUGAT) =======
+  // dacă nu e logat -> Login
+  if (!role) {
+    return <Login onLogin={(r: "admin" | "user") => setRole(r)} />;
+  }
+
+  // dacă e admin -> Dashboard Admin
+  if (role === "admin") {
+    return <DashboardAdmin onLogout={logout} />;
+  }
+  // dacă e user -> continuă site-ul normal (return-ul de mai jos)
+  // =======================================
+
   return (
     <div
       style={{
@@ -90,14 +119,20 @@ function App() {
             ACASĂ
           </span>
 
-          {/* === DOAR AICI AM SCHIMBAT "SERVICII" (dropdown) === */}
+          {/* SERVICII DROPDOWN */}
           <div ref={servicesRef} style={{ position: "relative", display: "inline-block" }}>
             <span
               onClick={() => setServicesOpen((v) => !v)}
               style={{ display: "inline-flex", alignItems: "center", gap: 6, userSelect: "none" }}
             >
               SERVICII
-              <span style={{ fontSize: 14, transition: "0.2s", transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}>
+              <span
+                style={{
+                  fontSize: 14,
+                  transition: "0.2s",
+                  transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
                 ▾
               </span>
             </span>
@@ -173,7 +208,6 @@ function App() {
               </div>
             )}
           </div>
-          {/* === GATA schimbarea pentru "SERVICII" === */}
 
           <span
             onClick={() => {
@@ -201,24 +235,42 @@ function App() {
           </span>
         </div>
 
-        <button
-          onClick={() => {
-            setServicesOpen(false);
-            scrollToSection("contact");
-          }}
-          style={{
-            backgroundColor: "#ff4d29",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: "25px",
-            fontWeight: "bold",
-            cursor: "pointer",
-          }}
-        >
-          Contactează-ne
-        </button>
+        <div style={{ display: "flex", gap: "10px" }}>
+  <button
+    onClick={() => {
+      setServicesOpen(false);
+      scrollToSection("contact");
+    }}
+    style={{
+      backgroundColor: "#ff4d29",
+      color: "#fff",
+      border: "none",
+      padding: "10px 20px",
+      borderRadius: "25px",
+      fontWeight: "bold",
+      cursor: "pointer",
+    }}
+  >
+    Contactează-ne
+  </button>
+
+  <button
+    onClick={logout}
+    style={{
+      backgroundColor: "#333",
+      color: "#fff",
+      border: "none",
+      padding: "10px 18px",
+      borderRadius: "25px",
+      fontWeight: "bold",
+      cursor: "pointer",
+    }}
+  >
+    Logout
+  </button>
+</div>
       </nav>
+      
 
       {/* HERO */}
       <div style={{ display: "flex", width: "100%", minHeight: "90vh", flexWrap: "wrap" }}>
