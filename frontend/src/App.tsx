@@ -235,7 +235,11 @@ function App() {
           </span>
         </div>
 
+<<<<<<< HEAD
        <div style={{ display: "flex", gap: "10px" }}>
+=======
+        <div style={{ display: "flex", gap: "10px" }}>
+>>>>>>> d8dd7b565eb81a1b6da9c5a5283257c34ced5574
   <button
     onClick={() => {
       setServicesOpen(false);
@@ -269,8 +273,12 @@ function App() {
     Logout
   </button>
 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d8dd7b565eb81a1b6da9c5a5283257c34ced5574
       </nav>
+      
 
       {/* HERO */}
       <div style={{ display: "flex", width: "100%", minHeight: "90vh", flexWrap: "wrap" }}>
