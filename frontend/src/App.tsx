@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Login from "./Login";
 import DashboardAdmin from "./DashboardAdmin";
 
-// frontend/src/App.tsx
+
 function App() {
-  // ======= LOGIN / ROLE (ADĂUGAT) =======
+  
   type Role = "admin" | "user" | null;
 
   const [role, setRole] = useState<Role>(
@@ -16,7 +16,7 @@ function App() {
     localStorage.removeItem("username");
     setRole(null);
   };
-  // =====================================
+  
 
   const [servicesOpen, setServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement | null>(null);
@@ -25,14 +25,12 @@ function App() {
     const element = document.getElementById(id);
     if (!element) return;
 
-    // offset pentru navbar sticky (ca să nu acopere titlul)
     const yOffset = -90;
     const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
 
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-  // închide dropdown dacă dai click în afară
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
