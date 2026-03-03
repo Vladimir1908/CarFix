@@ -65,18 +65,17 @@ function App() {
     },
   ];
 
-  // ======= LOGICA AFIȘARE (ADĂUGAT) =======
-  // dacă nu e logat -> Login
+
   if (!role) {
     return <Login onLogin={(r: "admin" | "user") => setRole(r)} />;
   }
 
-  // dacă e admin -> Dashboard Admin
+  
+
   if (role === "admin") {
     return <DashboardAdmin onLogout={logout} />;
   }
-  // dacă e user -> continuă site-ul normal (return-ul de mai jos)
-  // =======================================
+ 
 
   return (
     <div
