@@ -6,14 +6,15 @@ export default function Servicii() {
       title: "DIAGNOSTICAREA COMPUTERIZATĂ A AUTOMOBILULUI",
       desc: "Citire erori, parametri live, resetări, recomandări.",
       price: "200 MDL",
-      img: "/Diagnoza-auto.webp", // <-- Singura schimbare: am pus numele exact al pozei tale
+      img: "/Diagnoza-auto.webp", 
       path: "/servicii/diagnoza"
     },
     {
       title: "REPARAȚII MECANICE ȘI SUSPENSIE",
       desc: "Revizie, frâne, distribuție, ambreiaj, suspensie.",
       price: "400 MDL",
-      img: "/mecanica.webp",
+      
+      img: "/suspenise.jpeg", 
       path: "/servicii/mecanica"
     },
     {
@@ -28,7 +29,7 @@ export default function Servicii() {
   return (
     <div style={{ padding: "40px 5%", fontFamily: "Arial, sans-serif", backgroundColor: "#fdfdfd", minHeight: "100vh" }}>
       
-      {/* Breadcrumbs - exact ca pe Pelikan */}
+      {/* Breadcrumbs */}
       <nav style={{ marginBottom: "30px", fontSize: "14px", color: "#888" }}>
         <Link to="/" style={{ textDecoration: "none", color: "#888" }}>ACASĂ</Link> 
         <span style={{ margin: "0 10px" }}>{">"}</span> 
