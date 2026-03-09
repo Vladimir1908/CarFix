@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Login from "./Login";
 import DashboardAdmin from "./DashboardAdmin";
 import DiagnozaPage from "./pages/DiagnozaPage"; 
-import Servicii from "./pages/Servicii"; // <-- SCHIMBARE: Adăugat importul
+import Servicii from "./pages/Servicii";
+import ElectricaDetalii from "./pages/ElectricaDetalii"; // <-- IMPORT NOU
 
 function App() {
   type Role = "admin" | "user" | null;
@@ -173,9 +174,10 @@ function App() {
             </>
           } />
           
-          {/* SCHIMBARE: Adăugat ruta pentru pagina de listă servicii */}
           <Route path="/servicii" element={<Servicii />} />
           <Route path="/servicii/diagnoza" element={<DiagnozaPage />} />
+          {/* RUTA NOUĂ PENTRU MOTOARE ELECTRICE */}
+          <Route path="/servicii/motoare" element={<ElectricaDetalii />} />
         </Routes>
       </div>
     </Router>
