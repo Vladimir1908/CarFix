@@ -24,7 +24,7 @@ export default function DiagnozaPage() {
         {/* Coloana Stângă - Imagine și Introducere */}
         <div style={{ flex: "1 1 500px" }}>
           <img 
-            src="/diagnoza.webp" 
+            src="/diagnozaauto.jpg" 
             alt="Diagnoza Computerizata CarFix" 
             style={{ width: "100%", borderRadius: "20px", marginBottom: "25px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
           />
