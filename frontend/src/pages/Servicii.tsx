@@ -6,7 +6,7 @@ export default function Servicii() {
       title: "DIAGNOSTICAREA COMPUTERIZATĂ A AUTOMOBILULUI",
       desc: "Citire erori, parametri live, resetări, recomandări.",
       price: "200 MDL",
-      img: "/diagnoza.webp", // Asigură-te că ai imaginea în folderul public
+      img: "/Diagnoza-auto.webp", // <-- Singura schimbare: am pus numele exact al pozei tale
       path: "/servicii/diagnoza"
     },
     {
