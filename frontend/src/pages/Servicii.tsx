@@ -21,7 +21,7 @@ export default function Servicii() {
       title: "ELECTRICĂ AUTO / GENERATOARE",
       desc: "Alternator, demaror, senzori, cablaje, reparații motoare electrice.",
       price: "400 MDL",
-      img: "/electrica.webp",
+      img: "/Electric.avif",
       path: "/servicii/generatoare"
     }
   ];
