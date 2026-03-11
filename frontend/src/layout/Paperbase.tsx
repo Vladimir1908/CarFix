@@ -1,3 +1,4 @@
+
 import Box from '@mui/material/Box';
 import Navigator from './Navigator';
 import Header from './Header';
