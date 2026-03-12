@@ -9,3 +9,4 @@
 // Internal documentation 
 // Layout structure 
 // Contact UI 
+// SEO optimization 
