@@ -11,3 +11,4 @@
 // Contact UI 
 // SEO optimization 
 // Typography 
+// Code cleanup 
