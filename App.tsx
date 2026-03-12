@@ -12,3 +12,4 @@
 // SEO optimization 
 // Typography 
 // Code cleanup 
+// v1  
