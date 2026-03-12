@@ -10,3 +10,4 @@
 // Layout structure 
 // Contact UI 
 // SEO optimization 
+// Typography 
