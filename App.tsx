@@ -58,3 +58,4 @@
 // Final CSS adjustments 
 // Dark mode contrast fix 
 // Final config cleanup 
+// ThemeContext implementation 
