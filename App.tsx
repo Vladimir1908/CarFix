@@ -60,3 +60,4 @@
 // Final config cleanup 
 // ThemeContext implementation 
 // LCP optimization 
+// Session cleanup logic 
