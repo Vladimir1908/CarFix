@@ -56,3 +56,4 @@
 // Mobile breakpoint 768px 
 // Toast notifications logic 
 // Final CSS adjustments 
+// Dark mode contrast fix 
