@@ -54,3 +54,4 @@
 // adrian_v15  
 // Smooth transitions for menu 
 // Mobile breakpoint 768px 
+// Toast notifications logic 
