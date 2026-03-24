@@ -59,3 +59,4 @@
 // Dark mode contrast fix 
 // Final config cleanup 
 // ThemeContext implementation 
+// LCP optimization 
