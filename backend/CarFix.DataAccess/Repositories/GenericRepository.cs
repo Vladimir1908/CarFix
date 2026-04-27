@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-
 namespace CarFix.DataAccess.Repositories;
+
+using Microsoft.EntityFrameworkCore;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
