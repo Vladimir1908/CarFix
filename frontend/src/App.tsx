@@ -25,7 +25,6 @@ function App() {
     (localStorage.getItem("role") as Role) || null
   );
 
-  // --- MODIFICARE: Logica pentru Temă ---
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem("theme") === "dark");
 
   const theme = {
@@ -39,7 +38,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
-  // --------------------------------------
 
   const logout = () => {
     localStorage.removeItem("role");
@@ -69,30 +67,19 @@ function App() {
   }, []);
 
   const services = [
-    {
-      title: "Vezi toate serviciile",
-      desc: "Explorează toate serviciile noastre",
-      price: "",
-      path: "/servicii"
-    },
-    {
-      title: "DIAGNOSTICAREA COMPUTERIZATĂ A AUTOMOBILULUI",
-      desc: "Preț de la:",
-      price: "200 MDL",
-      path: "/servicii/diagnoza"
-    },
-    {
-      title: "REPARAȚIA MOTOARELOR ELECTRICE",
-      desc: "Preț de la:",
-      price: "400 MDL",
-      path: "/servicii/motoare"
-    },
-    {
-      title: "REPARAȚIA GENERATOARELOR",
-      desc: "Preț de la:",
-      price: "400 MDL",
-      path: "/servicii/generatoare"
-    },
+    { title: "Vezi toate serviciile", desc: "Explorează toate serviciile noastre", price: "", path: "/servicii" },
+    { title: "DIAGNOSTICAREA COMPUTERIZATĂ A AUTOMOBILULUI", desc: "Preț de la:", price: "200 MDL", path: "/servicii/diagnoza" },
+    { title: "REPARAȚIA MOTOARELOR ELECTRICE", desc: "Preț de la:", price: "400 MDL", path: "/servicii/motoare" },
+    { title: "REPARAȚIA GENERATOARELOR", desc: "Preț de la:", price: "400 MDL", path: "/servicii/generatoare" },
+  ];
+
+  const serviceCards = [
+    { icon: "🔍", title: "Diagnosticare Computerizată", desc: "Identificăm orice problemă cu echipamente moderne de scanare.", price: "de la 200 MDL" },
+    { icon: "🔧", title: "Mecanică Generală", desc: "Reparații complete ale motorului, frânelor și suspensiei.", price: "de la 300 MDL" },
+    { icon: "⚡", title: "Electrică Auto", desc: "Reparații sisteme electrice, generatoare și motoare electrice.", price: "de la 400 MDL" },
+    { icon: "🛢️", title: "Schimb Ulei & Filtre", desc: "Mentenanță periodică rapidă și profesionistă.", price: "de la 150 MDL" },
+    { icon: "❄️", title: "Climatizare Auto", desc: "Reîncărcare freon și reparații sistem de aer condiționat.", price: "de la 350 MDL" },
+    { icon: "🚗", title: "Geometrie & Echilibrare", desc: "Reglaj geometrie roți și echilibrare anvelope.", price: "de la 250 MDL" },
   ];
 
   if (!role) {
@@ -105,30 +92,30 @@ function App() {
 
   return (
     <Router>
-      <div style={{ 
-        width: "100vw", 
-        margin: 0, 
-        padding: 0, 
-        overflowX: "hidden", 
+      <div style={{
+        width: "100vw",
+        margin: 0,
+        padding: 0,
+        overflowX: "hidden",
         fontFamily: "Arial, sans-serif",
-        backgroundColor: theme.bg, // Aplicare temă fundal
-        color: theme.text,         // Aplicare temă text
+        backgroundColor: theme.bg,
+        color: theme.text,
         minHeight: "100vh",
         transition: "background-color 0.3s ease, color 0.3s ease"
       }}>
 
         {/* NAVBAR */}
-        <nav style={{ 
-          width: "100%", 
-          display: "flex", 
-          justifyContent: "space-between", 
-          alignItems: "center", 
-          padding: "15px 5%", 
-          backgroundColor: theme.navBg, // Aplicare temă nav
-          borderBottom: `1px solid ${theme.border}`, 
-          position: "sticky", 
-          top: 0, 
-          zIndex: 1000 
+        <nav style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "15px 5%",
+          backgroundColor: theme.navBg,
+          borderBottom: `1px solid ${theme.border}`,
+          position: "sticky",
+          top: 0,
+          zIndex: 1000
         }}>
           <Link to="/" style={{ textDecoration: "none" }}>
             <div style={{ fontWeight: "bold", fontSize: "1.8rem", color: "#d32f2f" }}>
@@ -137,9 +124,7 @@ function App() {
           </Link>
 
           <div style={{ display: "flex", gap: "25px", fontWeight: "bold", color: theme.text, cursor: "pointer", alignItems: "center" }}>
-            
-            {/* BUTON DARK MODE */}
-            <button 
+            <button
               onClick={() => setDarkMode(!darkMode)}
               style={{
                 background: "none",
@@ -157,16 +142,15 @@ function App() {
 
             <Link to="/" onClick={() => { setServicesOpen(false); scrollToSection("acasa"); }} style={{ textDecoration: "none", color: "inherit" }}>ACASĂ</Link>
 
-            {/* SERVICII DROPDOWN */}
             <div ref={servicesRef} style={{ position: "relative", display: "inline-block" }}>
               <span onClick={() => setServicesOpen((v) => !v)} style={{ display: "inline-flex", alignItems: "center", gap: 6, userSelect: "none" }}>
                 SERVICII <span style={{ fontSize: 14, transition: "0.2s", transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
               </span>
 
               {servicesOpen && (
-                <div style={{ 
-                  position: "absolute", top: 44, left: -120, width: 520, 
-                  background: theme.navBg, // Temă dropdown
+                <div style={{
+                  position: "absolute", top: 44, left: -120, width: 520,
+                  background: theme.navBg,
                   borderRadius: 20, boxShadow: "0 20px 50px rgba(0,0,0,0.2)", padding: 18, zIndex: 2000, cursor: "default",
                   border: `1px solid ${theme.border}`
                 }}>
@@ -174,10 +158,10 @@ function App() {
                   <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                     {services.map((service, index) => (
                       <Link key={index} to={service.path} onClick={() => setServicesOpen(false)} style={{ textDecoration: "none" }}>
-                        <div style={{ 
-                          display: "flex", alignItems: "center", gap: 14, padding: 12, borderRadius: 14, 
-                          border: index === 0 ? "2px dashed #ddd" : `1px solid ${theme.border}`, 
-                          cursor: "pointer", background: theme.cardBg 
+                        <div style={{
+                          display: "flex", alignItems: "center", gap: 14, padding: 12, borderRadius: 14,
+                          border: index === 0 ? "2px dashed #ddd" : `1px solid ${theme.border}`,
+                          cursor: "pointer", background: theme.cardBg
                         }}>
                           <div style={{ width: 46, height: 46, borderRadius: 12, background: darkMode ? "#333" : "#f3f3f3", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: 20 }}>🛠️</div>
                           <div style={{ flex: 1 }}>
@@ -233,30 +217,123 @@ function App() {
                 </div>
               </div>
 
+              {/* STATISTICI */}
+              <div style={{ backgroundColor: "#ff4d29", padding: "50px 5%", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "30px", textAlign: "center" }}>
+                {[
+                  { num: "500+", label: "Clienți Mulțumiți" },
+                  { num: "10+", label: "Ani de Experiență" },
+                  { num: "1000+", label: "Reparații Efectuate" },
+                  { num: "15+", label: "Specialiști Certificați" },
+                ].map((stat, i) => (
+                  <div key={i}>
+                    <div style={{ fontSize: "3rem", fontWeight: 900, color: "#fff" }}>{stat.num}</div>
+                    <div style={{ fontSize: "1rem", color: "rgba(255,255,255,0.85)", marginTop: "8px" }}>{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* SERVICII */}
               <section id="servicii" style={{ padding: "90px 5%", backgroundColor: darkMode ? "#1a1a1a" : "#fafafa" }}>
-                <h2 style={{ fontSize: "2.4rem", marginBottom: "12px", color: theme.text }}>Servicii</h2>
-                <p>Oferim diagnoză, mecanică și mentenanță completă.</p>
+                <h2 style={{ fontSize: "2.4rem", marginBottom: "12px", color: theme.text }}>Serviciile Noastre</h2>
+                <p style={{ color: darkMode ? "#aaa" : "#666", marginBottom: "50px", fontSize: "1.1rem" }}>
+                  Oferim diagnoză, mecanică și mentenanță completă pentru orice tip de vehicul.
+                </p>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "25px" }}>
+                  {serviceCards.map((s, i) => (
+                    <div key={i} style={{
+                      background: theme.cardBg,
+                      borderRadius: "20px",
+                      padding: "30px",
+                      boxShadow: darkMode ? "0 10px 30px rgba(0,0,0,0.4)" : "0 10px 30px rgba(0,0,0,0.08)",
+                      borderTop: "4px solid #ff4d29",
+                      transition: "transform 0.2s"
+                    }}>
+                      <div style={{ fontSize: "2.5rem", marginBottom: "15px" }}>{s.icon}</div>
+                      <h3 style={{ color: theme.text, marginBottom: "10px", fontSize: "1.1rem" }}>{s.title}</h3>
+                      <p style={{ color: darkMode ? "#aaa" : "#666", marginBottom: "15px", lineHeight: "1.6" }}>{s.desc}</p>
+                      <span style={{ color: "#ff4d29", fontWeight: "bold", fontSize: "1rem" }}>{s.price}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ textAlign: "center", marginTop: "40px" }}>
+                  <Link to="/servicii">
+                    <button style={{ backgroundColor: "#ff4d29", color: "#fff", border: "none", padding: "15px 40px", borderRadius: "30px", fontWeight: "bold", fontSize: "1rem", cursor: "pointer" }}>
+                      Vezi toate serviciile →
+                    </button>
+                  </Link>
+                </div>
               </section>
 
+              {/* DESPRE NOI */}
               <section id="despre" style={{ padding: "90px 5%", backgroundColor: theme.bg }}>
-                <h2 style={{ fontSize: "2.4rem", marginBottom: "12px", color: theme.text }}>Despre noi</h2>
-                <p>Specialiști dedicați cu experiență.</p>
+                <div style={{ display: "flex", gap: "60px", flexWrap: "wrap", alignItems: "center" }}>
+                  <div style={{ flex: "1 1 400px" }}>
+                    <h2 style={{ fontSize: "2.4rem", marginBottom: "20px", color: theme.text }}>Despre CarFix</h2>
+                    <p style={{ color: darkMode ? "#aaa" : "#666", lineHeight: "1.8", fontSize: "1.1rem", marginBottom: "20px" }}>
+                      CarFix Chișinău este un service auto modern, dedicat calității și satisfacției clienților. Cu peste 10 ani de experiență, echipa noastră de specialiști certificați oferă servicii de top pentru orice marcă de vehicul.
+                    </p>
+                    <p style={{ color: darkMode ? "#aaa" : "#666", lineHeight: "1.8", fontSize: "1.1rem", marginBottom: "30px" }}>
+                      Folosim echipamente de ultimă generație și piese originale pentru a garanta siguranța și performanța mașinii tale.
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      {["✅ Tehnicieni certificați și cu experiență", "✅ Echipamente moderne de diagnosticare", "✅ Piese originale și garantate", "✅ Prețuri transparente fără surprize"].map((item, i) => (
+                        <div key={i} style={{ color: theme.text, fontSize: "1rem" }}>{item}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ flex: "1 1 350px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+                    {[
+                      { icon: "🏆", title: "Calitate Garantată", desc: "Toate lucrările sunt garantate" },
+                      { icon: "⏱️", title: "Rapiditate", desc: "Lucrări finalizate la timp" },
+                      { icon: "💰", title: "Prețuri Corecte", desc: "Transparent și fără costuri ascunse" },
+                      { icon: "📞", title: "Suport 24/7", desc: "Suntem mereu disponibili" },
+                    ].map((card, i) => (
+                      <div key={i} style={{
+                        background: theme.cardBg,
+                        borderRadius: "16px",
+                        padding: "25px",
+                        boxShadow: darkMode ? "0 8px 20px rgba(0,0,0,0.4)" : "0 8px 20px rgba(0,0,0,0.08)",
+                        textAlign: "center"
+                      }}>
+                        <div style={{ fontSize: "2rem", marginBottom: "10px" }}>{card.icon}</div>
+                        <h4 style={{ color: theme.text, marginBottom: "8px" }}>{card.title}</h4>
+                        <p style={{ color: darkMode ? "#aaa" : "#666", fontSize: "0.9rem" }}>{card.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </section>
 
-              {/* ... Restul secțiunilor cu theme.text ... */}
+              {/* CTA BANNER */}
+              <section style={{ padding: "80px 5%", backgroundColor: darkMode ? "#1a1a1a" : "#1a1a1a", textAlign: "center" }}>
+                <h2 style={{ fontSize: "2.5rem", color: "#fff", marginBottom: "20px" }}>Programează-te acum!</h2>
+                <p style={{ color: "#aaa", fontSize: "1.1rem", marginBottom: "35px" }}>Echipa noastră este gata să te ajute. Contactează-ne sau fă o programare online.</p>
+                <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
+                  <Link to="/programari">
+                    <button style={{ backgroundColor: "#ff4d29", color: "#fff", border: "none", padding: "15px 40px", borderRadius: "30px", fontWeight: "bold", fontSize: "1rem", cursor: "pointer" }}>
+                      Programare Online
+                    </button>
+                  </Link>
+                  <Link to="/contact">
+                    <button style={{ backgroundColor: "transparent", color: "#fff", border: "2px solid #fff", padding: "15px 40px", borderRadius: "30px", fontWeight: "bold", fontSize: "1rem", cursor: "pointer" }}>
+                      Contactează-ne
+                    </button>
+                  </Link>
+                </div>
+              </section>
             </>
           } />
 
           <Route path="/servicii" element={<Servicii />} />
           <Route path="/servicii/diagnoza" element={<DiagnozaPage />} />
           <Route path="/servicii/motoare" element={<ElectricaDetalii />} />
+          <Route path="/servicii/generatoare" element={<ElectricaDetalii />} />
           <Route path="/despre" element={<Despre />} />
           <Route path="/echipa" element={<Echipa />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/galerie" element={<Galerie />} />
           <Route path="/preturi" element={<Preturi />} />
           <Route path="/programari" element={<Programari />} />
-          {/* Pasăm tema către Recenzii */}
           <Route path="/recenzii" element={<Recenzii theme={theme} isDark={darkMode} />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
