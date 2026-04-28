@@ -88,3 +88,4 @@ Detaliu configurare securitate endpoint v86
 Detaliu configurare securitate endpoint v87  
 Detaliu configurare securitate endpoint v88  
 Detaliu configurare securitate endpoint v89  
+Detaliu configurare securitate endpoint v90  
