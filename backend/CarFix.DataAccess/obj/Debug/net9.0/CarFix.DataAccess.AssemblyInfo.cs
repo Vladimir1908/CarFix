@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarFix.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89ea4634c7f229437d65e58d5a3adef7b7f65c79")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f1435cb89eee74db807ab7e34b06038441b2f04")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarFix.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarFix.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axiosInstance from "../api/axiosInstance";
 
 type Step = 1 | 2 | 3 | 4;
 
@@ -41,19 +42,35 @@ export default function Programari() {
 
   const selectedServiceObj = SERVICES.find(s => s.id === selectedService);
 
-  const handleSubmit = () => {
-    const bookings = JSON.parse(localStorage.getItem("carfix_bookings") || "[]");
-    bookings.push({
-      id: Date.now(),
-      service: selectedServiceObj?.label,
-      date: selectedDate,
-      time: selectedTime,
-      ...form,
-      status: "pending",
-      createdAt: new Date().toISOString(),
-    });
-    localStorage.setItem("carfix_bookings", JSON.stringify(bookings));
-    setSubmitted(true);
+  const handleSubmit = async () => {
+    try {
+      const appointmentData = {
+        clientId: 1,
+        serviceId: SERVICES.findIndex(s => s.id === selectedService) + 1,
+        carBrand: form.carModel.split(' ')[0] || 'Unknown',
+        carModel: form.carModel,
+        licensePlate: form.licensePlate,
+        scheduledAt: new Date(`${selectedDate}T${selectedTime}:00`).toISOString(),
+        status: 'Pending',
+        notes: form.notes,
+      };
+      await axiosInstance.post('/appointments', appointmentData);
+      const bookings = JSON.parse(localStorage.getItem('carfix_bookings') || '[]');
+      bookings.push({
+        id: Date.now(),
+        service: selectedServiceObj?.label,
+        date: selectedDate,
+        time: selectedTime,
+        ...form,
+        status: 'pending',
+        createdAt: new Date().toISOString(),
+      });
+      localStorage.setItem('carfix_bookings', JSON.stringify(bookings));
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Eroare la salvare:', error);
+      setSubmitted(true);
+    }
   };
 
   const STEP_LABEL: Record<number, string> = { 1: "Serviciu", 2: "Data & Ora", 3: "Date personale", 4: "Confirmare" };
