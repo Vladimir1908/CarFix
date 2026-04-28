@@ -1,0 +1,2 @@
+"Loguri Sisteme si Configurari de Securitate"  
+Detaliu configurare securitate endpoint v1  
