@@ -119,3 +119,4 @@ Detaliu configurare securitate endpoint v117
 Detaliu configurare securitate endpoint v118  
 Detaliu configurare securitate endpoint v119  
 Detaliu configurare securitate endpoint v120  
+Detaliu configurare securitate endpoint v121  
