@@ -3,3 +3,4 @@ Detaliu configurare securitate endpoint v1
 Detaliu configurare securitate endpoint v2  
 Detaliu configurare securitate endpoint v3  
 Detaliu configurare securitate endpoint v4  
+Detaliu configurare securitate endpoint v5  
