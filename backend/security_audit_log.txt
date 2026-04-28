@@ -36,3 +36,4 @@ Detaliu configurare securitate endpoint v34
 Detaliu configurare securitate endpoint v35  
 Detaliu configurare securitate endpoint v36  
 Detaliu configurare securitate endpoint v37  
+Detaliu configurare securitate endpoint v38  
