@@ -18,3 +18,4 @@ Detaliu configurare securitate endpoint v16
 Detaliu configurare securitate endpoint v17  
 Detaliu configurare securitate endpoint v18  
 Detaliu configurare securitate endpoint v19  
+Detaliu configurare securitate endpoint v20  
