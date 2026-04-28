@@ -1,3 +1,4 @@
 "Loguri Sisteme si Configurari de Securitate"  
 Detaliu configurare securitate endpoint v1  
 Detaliu configurare securitate endpoint v2  
+Detaliu configurare securitate endpoint v3  
