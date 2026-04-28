@@ -22,3 +22,4 @@ Detaliu configurare securitate endpoint v20
 Detaliu configurare securitate endpoint v21  
 Detaliu configurare securitate endpoint v22  
 Detaliu configurare securitate endpoint v23  
+Detaliu configurare securitate endpoint v24  
