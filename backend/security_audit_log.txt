@@ -14,3 +14,4 @@ Detaliu configurare securitate endpoint v12
 Detaliu configurare securitate endpoint v13  
 Detaliu configurare securitate endpoint v14  
 Detaliu configurare securitate endpoint v15  
+Detaliu configurare securitate endpoint v16  
