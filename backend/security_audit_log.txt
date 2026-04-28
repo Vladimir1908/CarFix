@@ -70,3 +70,4 @@ Detaliu configurare securitate endpoint v68
 Detaliu configurare securitate endpoint v69  
 Detaliu configurare securitate endpoint v70  
 Detaliu configurare securitate endpoint v71  
+Detaliu configurare securitate endpoint v72  
