@@ -96,3 +96,4 @@ Detaliu configurare securitate endpoint v94
 Detaliu configurare securitate endpoint v95  
 Detaliu configurare securitate endpoint v96  
 Detaliu configurare securitate endpoint v97  
+Detaliu configurare securitate endpoint v98  
