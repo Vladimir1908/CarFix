@@ -10,3 +10,4 @@ Detaliu configurare securitate endpoint v8
 Detaliu configurare securitate endpoint v9  
 Detaliu configurare securitate endpoint v10  
 Detaliu configurare securitate endpoint v11  
+Detaliu configurare securitate endpoint v12  
