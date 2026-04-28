@@ -5,3 +5,4 @@ Detaliu configurare securitate endpoint v3
 Detaliu configurare securitate endpoint v4  
 Detaliu configurare securitate endpoint v5  
 Detaliu configurare securitate endpoint v6  
+Detaliu configurare securitate endpoint v7  
