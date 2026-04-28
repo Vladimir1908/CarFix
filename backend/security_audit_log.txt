@@ -27,3 +27,4 @@ Detaliu configurare securitate endpoint v25
 Detaliu configurare securitate endpoint v26  
 Detaliu configurare securitate endpoint v27  
 Detaliu configurare securitate endpoint v28  
+Detaliu configurare securitate endpoint v29  
