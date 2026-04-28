@@ -67,3 +67,4 @@ Detaliu configurare securitate endpoint v65
 Detaliu configurare securitate endpoint v66  
 Detaliu configurare securitate endpoint v67  
 Detaliu configurare securitate endpoint v68  
+Detaliu configurare securitate endpoint v69  
