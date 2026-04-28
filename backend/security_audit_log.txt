@@ -84,3 +84,4 @@ Detaliu configurare securitate endpoint v82
 Detaliu configurare securitate endpoint v83  
 Detaliu configurare securitate endpoint v84  
 Detaliu configurare securitate endpoint v85  
+Detaliu configurare securitate endpoint v86  
