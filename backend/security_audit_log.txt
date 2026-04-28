@@ -42,3 +42,4 @@ Detaliu configurare securitate endpoint v40
 Detaliu configurare securitate endpoint v41  
 Detaliu configurare securitate endpoint v42  
 Detaliu configurare securitate endpoint v43  
+Detaliu configurare securitate endpoint v44  
