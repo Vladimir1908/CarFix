@@ -54,3 +54,4 @@ Detaliu configurare securitate endpoint v52
 Detaliu configurare securitate endpoint v53  
 Detaliu configurare securitate endpoint v54  
 Detaliu configurare securitate endpoint v55  
+Detaliu configurare securitate endpoint v56  
