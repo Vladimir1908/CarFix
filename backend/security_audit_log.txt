@@ -103,3 +103,4 @@ Detaliu configurare securitate endpoint v101
 Detaliu configurare securitate endpoint v102  
 Detaliu configurare securitate endpoint v103  
 Detaliu configurare securitate endpoint v104  
+Detaliu configurare securitate endpoint v105  
