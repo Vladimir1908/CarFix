@@ -47,3 +47,4 @@ Detaliu configurare securitate endpoint v45
 Detaliu configurare securitate endpoint v46  
 Detaliu configurare securitate endpoint v47  
 Detaliu configurare securitate endpoint v48  
+Detaliu configurare securitate endpoint v49  
