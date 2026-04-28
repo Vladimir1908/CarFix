@@ -77,3 +77,4 @@ Detaliu configurare securitate endpoint v75
 Detaliu configurare securitate endpoint v76  
 Detaliu configurare securitate endpoint v77  
 Detaliu configurare securitate endpoint v78  
+Detaliu configurare securitate endpoint v79  
