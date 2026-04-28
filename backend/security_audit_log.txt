@@ -124,3 +124,4 @@ Detaliu configurare securitate endpoint v122
 Detaliu configurare securitate endpoint v123  
 Detaliu configurare securitate endpoint v124  
 Detaliu configurare securitate endpoint v125  
+Detaliu configurare securitate endpoint v126  
