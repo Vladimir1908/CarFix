@@ -21,5 +21,10 @@ namespace CarFix.BusinessLayer
         {
             return new AppointmentExecution();
         }
+
+        public IStatisticsAction StatisticsAction()
+        {
+            return new StatisticsExecution();
+        }
     }
 }
