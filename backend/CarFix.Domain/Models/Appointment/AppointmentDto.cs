@@ -10,6 +10,7 @@ namespace CarFix.Domain.Models.Appointment
         public string LicensePlate { get; set; }
         public DateTime ScheduledAt { get; set; }
         public string Status { get; set; }
+        public string? Mechanic { get; set; }
         public string? Notes { get; set; }
     }
 }

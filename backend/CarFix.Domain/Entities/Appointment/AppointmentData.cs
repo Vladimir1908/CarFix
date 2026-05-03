@@ -28,6 +28,9 @@ namespace CarFix.Domain.Entities.Appointment
         [StringLength(50)]
         public string Status { get; set; } = "Pending";
 
+        [StringLength(100)]
+        public string? Mechanic { get; set; }
+
         [StringLength(500)]
         public string? Notes { get; set; }
 

@@ -30,6 +30,7 @@ namespace CarFix.BusinessLayer.Core
                     LicensePlate = item.LicensePlate,
                     ScheduledAt = item.ScheduledAt,
                     Status = item.Status,
+                    Mechanic = item.Mechanic,
                     Notes = item.Notes
                 });
             }
@@ -54,6 +55,7 @@ namespace CarFix.BusinessLayer.Core
                 LicensePlate = apptData.LicensePlate,
                 ScheduledAt = apptData.ScheduledAt,
                 Status = apptData.Status,
+                Mechanic = apptData.Mechanic,
                 Notes = apptData.Notes
             };
         }
@@ -71,6 +73,7 @@ namespace CarFix.BusinessLayer.Core
                     LicensePlate = data.LicensePlate,
                     ScheduledAt = data.ScheduledAt,
                     Status = data.Status ?? "Pending",
+                    Mechanic = data.Mechanic,
                     Notes = data.Notes,
                     CreatedAt = DateTime.Now
                 };
@@ -95,6 +98,7 @@ namespace CarFix.BusinessLayer.Core
             localData.LicensePlate = data.LicensePlate;
             localData.ScheduledAt = data.ScheduledAt;
             localData.Status = data.Status;
+            localData.Mechanic = data.Mechanic;
             localData.Notes = data.Notes;
             localData.UpdatedAt = DateTime.Now;
 
