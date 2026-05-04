@@ -26,5 +26,10 @@ namespace CarFix.BusinessLayer
         {
             return new StatisticsExecution();
         }
+
+        public IContactAction ContactAction()
+        {
+            return new ContactExecution();
+        }
     }
 }
