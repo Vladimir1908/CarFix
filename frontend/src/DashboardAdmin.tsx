@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 import axiosInstance from "./api/axiosInstance";
 import MechanicsTab from "./components/MechanicsTab";
+import InventoryTab from "./components/InventoryTab";
 
 type Booking = {
   id: number;
@@ -53,7 +54,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 export default function DashboardAdmin({ onLogout }: { onLogout: () => void }) {
   // ── tab extins cu "mechanics" ──────────────────────────────────────────────
-  const [tab, setTab] = useState<"overview" | "bookings" | "services" | "mechanics" | "stats" | "messages">("overview");
+  const [tab, setTab] = useState<"overview" | "bookings" | "services" | "mechanics" | "inventory" | "stats" | "messages">("overview");
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [services, setServices] = useState<Service[]>([]);
   const [messages, setMessages] = useState<ContactMessage[]>([]);
@@ -167,6 +168,7 @@ export default function DashboardAdmin({ onLogout }: { onLogout: () => void }) {
               <button onClick={() => setTab("services")} style={NAV(tab === "services")}>🔧 Servicii</button>
               {/* ── NOU: tab Mecanici ── */}
               <button onClick={() => setTab("mechanics")} style={NAV(tab === "mechanics")}>🔩 Mecanici</button>
+              <button onClick={() => setTab("inventory")} style={NAV(tab === "inventory")}>🔧 Inventar</button>
               <button onClick={() => setTab("stats")} style={NAV(tab === "stats")}>📈 Statistici</button>
               <button onClick={() => setTab("messages")} style={NAV(tab === "messages")}>
                 📬 Mesaje {unread > 0 && <span style={{ background: "#3b82f6", color: "#fff", borderRadius: 10, padding: "1px 6px", fontSize: "0.7rem", marginLeft: 4 }}>{unread}</span>}
@@ -378,6 +380,7 @@ export default function DashboardAdmin({ onLogout }: { onLogout: () => void }) {
 
           {/* ── NOU: MECHANICS ─────────────────────────────────────────────────── */}
           {tab === "mechanics" && <MechanicsTab />}
+          {tab === "inventory" && <InventoryTab />}
 
           {/* STATS */}
           {tab === "stats" && (
