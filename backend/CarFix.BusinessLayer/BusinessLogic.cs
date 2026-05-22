@@ -8,28 +8,22 @@ namespace CarFix.BusinessLayer
         public BusinessLogic() { }
 
         public IClientAction ClientAction()
-        {
-            return new ClientExecution();
-        }
+            => new ClientExecution();
 
         public IServiceAction ServiceAction()
-        {
-            return new ServiceExecution();
-        }
+            => new ServiceExecution();
 
         public IAppointmentAction AppointmentAction()
-        {
-            return new AppointmentExecution();
-        }
+            => new AppointmentExecution();
 
         public IStatisticsAction StatisticsAction()
-        {
-            return new StatisticsExecution();
-        }
+            => new StatisticsExecution();
 
         public IContactAction ContactAction()
-        {
-            return new ContactExecution();
-        }
+            => new ContactExecution();
+
+        // ── NOU ──────────────────────────────────────────────
+        public IMechanicAction MechanicAction()
+            => new MechanicExecution();
     }
 }
