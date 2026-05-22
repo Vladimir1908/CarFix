@@ -22,7 +22,9 @@ namespace CarFix.BusinessLayer
         public IContactAction ContactAction()
             => new ContactExecution();
 
-        // ── NOU ──────────────────────────────────────────────
+        public IInventoryAction InventoryAction()
+            => new InventoryExecution();
+
         public IMechanicAction MechanicAction()
             => new MechanicExecution();
     }
